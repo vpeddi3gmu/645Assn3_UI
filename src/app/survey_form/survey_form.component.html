@@ -1,0 +1,123 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>STUDENT SURVEY FORM</title>
+<link rel = "stylesheet" type = "text/css" href = "./survey_form.component.css" /> 
+</head>
+<body style="background-color: #E6E6FA;">
+	<h1 style="  text-align: center;"> STUDENT SURVEY FORM  & (Date: {{today}})</h1>
+	<h2>Enter Details Below: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+	<h3>&nbsp;&nbsp; * Indicates required fields.</h3>
+	<form method="post" action="success.html">
+		<table id="mytable" class="center" BORDER=”2″>
+			<tr><td><label>*First Name:</label></td>
+				<td>
+					<input type="text" id="fName" name="fName"  [(ngModel)]="message.fName" />
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<td><label>*Last Name:</label></td>
+				<td><input   type="text" id="lName" name="lName"  [(ngModel)]="message.lName" />
+					<br></td>
+			</tr>
+			<tr>
+				<td><label>*Street Address:</label></td>
+				<td> 
+					<input  type="text" id="address" name="address"  [(ngModel)]="message.address" />	
+				<br></td>
+			</tr>
+			<tr>
+				<td><label>*City:</label></td>
+				<td><input  type="text" id="city" name="city" [(ngModel)]="message.city" /><br></td>
+			</tr>
+			<tr>
+				<td><label>*State:</label></td>
+				<td><input  type="text" id="state" name="state"  [(ngModel)]="message.state" /><br></td>
+			</tr>
+			<tr>
+				<td><label>*Zip:</label></td>
+				<td><input  type="text" id="zip" name="zip"  [(ngModel)]="message.zip" /><br></td>
+			</tr>
+			<tr>
+				<td><label>*Telephone Number:</label></td>
+				<td><input  type="text" id="phone" name="phone" [(ngModel)]="message.phone" /><br></td>
+			</tr>
+			<tr>
+				<td><label>*E-mail:</label></td>
+				<td><input type="text" id="email" name="email"  [(ngModel)]="message.email" /><br> </td>
+			</tr>
+			<tr>
+				<td><label>*Date of Survey:</label> </td>
+				<td><input  type="date" id="date" name="date"   ng-model="message.date" /><br>	</td>
+			</tr>
+			<tr>
+				<td><strong>Check the things you liked about the campus:</strong><br/></td>
+				<td>
+					<label for="like1">{{campus_value[0]}}</label>
+					<input type="checkbox" id="like1" name="campus"  value="campus_value[0]" [(ngModel)]="message.campus_temp[0]" />
+					<label for="like2">&nbsp;{{campus_value[1]}}</label>  
+					<input type="checkbox" id="like2" name="campus" value="campus_value[1]" [(ngModel)]="message.campus_temp[1]" />
+					<label for="like3">{{campus_value[2]}}</label> 
+					<input type="checkbox" id="like3" name="campus" value="campus_value[2]" [(ngModel)]="message.campus_temp[2]" />
+					<label for="like4">{{campus_value[3]}}</label>
+					<input type="checkbox" id="like4" name="campus" value="campus_value[3]" [(ngModel)]="message.campus_temp[3]" />
+					<label for="like5">{{campus_value[4]}}</label>
+					<input type="checkbox" id="like5" name="campus" value="campus_value[4]" [(ngModel)]="message.campus_temp[4]" />
+					<label for="like6">{{campus_value[5]}}</label>
+					<input type="checkbox" id="like6" name="campus" value="campus_value[5]" [(ngModel)]="message.campus_temp[5]" />
+				</td>
+			</tr>
+			<tr>
+				<td><strong>How did you become interested in the university?:</strong><br/></td>
+				<td>
+					<label  for="interest1">friends</label>
+					<input type="radio" id="interest1" name="reason" value="friends"  [(ngModel)]="message.reason"/><br>
+					<label  for="interest2">television</label>
+					<input type="radio" id="interest2" name="reason" value="television"  [(ngModel)]="message.reason"/><br>
+					<label  for="interest3">Internet</label>
+					<input type="radio" id="interest3" name="reason" value="Internet" [(ngModel)]="message.reason" /><br>
+					<label  for="interest4">other</label>
+					<input type="radio" id="interest4" name="reason" value="other"  [(ngModel)]="message.reason"/>
+				</td>
+			</tr>
+			<tr>
+				<td><label><strong>How likely are you to recommend this university to prospective students?</strong></label></td>
+				<td>
+					<select id="likelihood" name="likelihood" [(ngModel)]="message.likelihood">
+						<option value="Very Likely">Very Likely</option>
+						<option value="Likely">Likely</option>
+						<option value="Unlikely">Unlikely</option>
+						  </select>
+				</td>
+			</tr>
+			<!--
+			<tr>
+				<td><label>Raffle : </label></td>
+				<td>
+					<textarea name="Raffle" rows="1" cols="30"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Additional Comments:</label></td>
+				<td>
+					<textarea name="comments" rows="4" cols="36"></textarea>
+				</td>
+			</tr>
+		--> 
+		</table>
+
+	
+		<table style="border:1px solid black;margin-left:auto;margin-right:auto; width:100%; width:0.1%;white-space: nowrap;" >
+		
+		
+		<tr>
+			<td><button type="submit" (click)="onClickSubmit()">Submit</button></td>
+			<td>
+				<button type="button" (click)="cancel()">Cancel</button>	
+			</td>
+		</tr>
+		</table>
+	</form>
+</body>
+</html>

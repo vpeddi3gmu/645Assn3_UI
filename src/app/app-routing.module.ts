@@ -6,6 +6,7 @@ import { SurveyResultsDisplayComponent } from './survey_results_display/survey_r
 import { HomePageComponent } from './home_page/home_page.component';
 
 const routes: Routes = [
+  {path: "",  component: HomePageComponent, pathMatch: "full"},
   {
     path:'survey-form',
     component: SurveyFormComponent

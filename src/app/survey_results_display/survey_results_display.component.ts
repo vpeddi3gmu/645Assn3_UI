@@ -11,7 +11,7 @@ import { catchError, map, tap, finalize, retry } from 'rxjs/operators';
 })
 export class SurveyResultsDisplayComponent implements OnInit {
 
-  url: string = 'http://ec2-13-215-186-142.ap-southeast-1.compute.amazonaws.com/645Assn3/fullsurveylist'
+  url: string = 'http://44.209.65.37:34455/645Assn3/fullsurveylist'
   surveys: Survey[]
   constructor(private http:HttpClient) { }
 

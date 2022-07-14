@@ -15,7 +15,7 @@ import { CheckboxRequiredValidator } from '@angular/forms';
 })
 
 export class SurveyFormComponent implements OnInit {
-  url: string = 'http://ec2-13-215-186-142.ap-southeast-1.compute.amazonaws.com/645Assn3/survey_form_submission'
+  url: string = 'http://44.209.65.37:34455/645Assn3/survey_form_submission'
   message:Survey = new Survey()
   campus_value:string[] = ['students','location','campus','atmosphere', 'dorm rooms','sports'] 
   today: string = new Date().toDateString();

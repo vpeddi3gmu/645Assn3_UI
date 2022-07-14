@@ -15,7 +15,7 @@ import { CheckboxRequiredValidator } from '@angular/forms';
 })
 
 export class SurveyFormComponent implements OnInit {
-  url: string = 'http://ec2-54-145-136-35.compute-1.amazonaws.com:31557/swe645-restful-api/restful/survey/create'
+  url: string = 'http://ec2-13-215-186-142.ap-southeast-1.compute.amazonaws.com/645Assn3/survey_form_submission'
   message:Survey = new Survey()
   campus_value:string[] = ['students','location','campus','atmosphere', 'dorm rooms','sports'] 
   today: string = new Date().toDateString();
@@ -34,36 +34,66 @@ export class SurveyFormComponent implements OnInit {
     return temp;
   }
   checkInfo():boolean{
-    return this.message.fName==''||this.message.lName==''||this.message.address==''||this.message.email==''||this.message.city==''||
-    this.message.state==''||this.message.phone==''||this.message.date==''||this.message.zip=='';
+    console.log(this.message.fName==''||
+    this.message.lName==''||
+    this.message.address==''||
+    this.message.city==''||
+    this.message.state==''||
+    this.message.zip==''||
+    this.message.phone==''||
+    this.message.email==''||
+    this.message.date==''||
+    this.campusParse(this.message.campus_temp)==''||
+    this.message.likelihood==''||
+    this.message.reason=='')
+    return this.message.fName==''||
+           this.message.lName==''||
+           this.message.address==''||
+           this.message.city==''||
+           this.message.state==''||
+           this.message.zip==''||
+           this.message.phone==''||
+           this.message.email==''||
+           this.message.date==''||
+           this.campusParse(this.message.campus_temp)==''||
+           this.message.likelihood==''||
+           this.message.reason==''
+           ;
   }
 
   onClickSubmit():void {  
     this.message.date = this.today;
-    let body ="fName="+this.message.fName+"&"
-            +"lName="+this.message.lName+"&"
-            +"address="+this.message.address +"&"
-            +"city="+this.message.city+"&"
-            +"state="+this.message.state+"&"
-            +"zip="+this.message.zip+"&"
-            +"phone="+this.message.phone+"&"
-            +"email="+this.message.email+"&"
-            +"date="+this.message.date+"&"
-            +"campus="+this.campusParse(this.message.campus_temp)+"&"
-            +"reason="+this.message.reason+"&"
-            +"likelihood="+this.message.likelihood;
+    let body =new FormData();
+    body.append('fName',this.message.fName);
+    body.append('lName',this.message.lName);
+    body.append('address',this.message.address);
+    body.append('city',this.message.city);
+    body.append('state',this.message.state);
+    body.append('zip',this.message.zip);
+    body.append('phone',this.message.phone);
+    body.append('email',this.message.email);
+    body.append('date',this.message.date);
+    body.append('campus',this.campusParse(this.message.campus_temp));
+    body.append('reason',this.message.reason);
+    body.append('likelihood',this.message.likelihood);
     
     if(this.checkInfo()){
-      alert('Please enter details in all the fields of personal info section\n\n\n');
+      alert('Please enter details in all the fields given in Survey form\n\n\n');
     }
     else{
-      this.http.post(this.url,body).subscribe(
+      const myObserver = {
+        
+        error: (err: Error) => console.error('Observer got an error: ' + err),
+        complete: () => console.log('Observer got a complete notification'),
+      };
+      this.http.post(this.url,body, { responseType: 'text' }).subscribe(
         succeed=>{
-          alert('Survey Form submitted\n'  + body);      
+          alert('Survey submitted successfully !!! Thank you!!\n');      
           this.router.navigate(['/home_page']);
         },
         error=>{
           alert('Failed to submit the survey form\n' + body);
+          console.log('this is the error:-',error)
         }
       );
       return;

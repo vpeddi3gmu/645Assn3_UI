@@ -8,15 +8,60 @@
 <h1 align="center">Survey Results</h1>
 <div *ngFor="let survey of this.surveys">
     <!-- need to sort by date -->
-    <h2>SUBMIT DATE: {{survey['date']}}</h2>
-    <pre>FIRST NAME: {{survey['fName']}}    LAST NAME: {{survey['lName']}}</pre>
-    <pre>ADDRESS: {{survey['address']}}     CITY: {{survey['city']}}</pre>
-    <pre>STATE: {{survey['state']}}        ZIP: {{survey['zip']}}</pre>
-    <pre>PHONE: {{survey['phone']}}        EMAIL: {{survey['email']}}</pre>
-    <pre>What do you like the most about the campus? {{survey['campus']}}</pre>
-    <pre>How you became interested in the university? {{survey['reason']}}</pre>
-    <pre>How likely are you going to recommend this school to other prospective students? {{survey['likelihood']}}</pre>
+    <table id="mytable" class="center" BORDER=”2″>
+        <tr>
+            <td><h2>SUBMIT DATE:</h2></td>
+            <td> {{survey['date']}}</td>
+        </tr>
+        <tr>
+            <td>FIRST NAME:</td>
+            <td>{{survey['fName']}}</td>
+        </tr>
+        <tr>
+            <td>LAST NAME:</td>
+            <td>{{survey['lName']}}</td>
+        </tr>
+        <tr>
+            <td>ADDRESS: </td>
+            <td>{{survey['address']}} </td>
+        </tr>
+        <tr>
+            <td> CITY: </td>
+            <td>{{survey['city']}}</td>
+        </tr>
+        <tr>
+            <td>STATE: </td>
+            <td>{{survey['state']}} </td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>ZIP: </td>
+            <td> {{survey['zip']}}</td>
+        </tr>
+        <tr>
+            <td>PHONE:</td>
+            <td> {{survey['phone']}} </td>
+        </tr>
+        <tr>
+            <td>EMAIL:</td>
+            <td> {{survey['email']}}</td>
+        </tr>
+        <tr>
+            <td>What do you like the most about the campus? </td>
+            <td>{{survey['campus']}}</td>
+        </tr>
+        <tr>
+            <td>How you became interested in the university?</td>
+            <td> {{survey['reason']}}</td>
+        </tr>
+        <tr>
+            <td>How likely are you going to recommend this school to other prospective students?</td>
+            <td>{{survey['likelihood']}}</td>
+        </tr>
+    </table>
     
+   
     <hr>
 </div>
 </body>

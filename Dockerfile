@@ -1,14 +1,13 @@
-FROM node:14.15
-EXPOSE 4200
+FROM node:14.15 as builder
+WORKDIR /ui
+COPY package*.json /ui/
+RUN npm install
+RUN  npm install -g @angular/cli@14.0.0
+COPY ./ /ui/
+RUN npm run build --prod
 
-RUN apt-get update
-RUN apt-get install -y vim  --no-install-recommends 
-
-RUN  npm install -g @angular/cli
-
-RUN git config --global user.email "vpeddi3@gmu.edu"
-RUN git config --global user.name "Vamsi Krishna Peddi"
-
-CMD /bin/bash
+FROM nginx:alpine
+COPY --from=builder /ui/dist/645-assn3-ui /usr/share/nginx/html
+COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
 
 

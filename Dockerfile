@@ -1,3 +1,8 @@
+#This is mnaully written file which will import the image of node:14.15
+#and copies the build file to runtime docker  image nginx:alpine
+
+#nginx:alpine will be the final container which will be executed on kubernetes
+
 FROM node:14.15 as builder
 WORKDIR /ui
 COPY package*.json /ui/

@@ -14,3 +14,6 @@ RUN npm run build --prod
 FROM nginx:alpine
 COPY --from=builder /ui/dist/645-assn3-ui /usr/share/nginx/html
 COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+
+
+#End of file

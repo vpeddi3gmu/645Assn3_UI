@@ -1,3 +1,7 @@
+//VamsiKrishnaPeddi
+//This file contains homapage related logic but there is no backend calls only displaying the image
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

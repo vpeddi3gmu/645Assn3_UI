@@ -1,3 +1,7 @@
+//VamsiKrishnaPeddi
+//This is the root file of angular app where all the components created are declared here
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';

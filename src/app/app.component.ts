@@ -1,3 +1,5 @@
+//VamsiKrishnaPeddi
+//This is the root file of angular app itslef where application name is defined
 import { Component } from '@angular/core';
 
 @Component({

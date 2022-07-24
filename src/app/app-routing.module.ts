@@ -1,3 +1,6 @@
+//VamsiKrishnaPeddi
+//This is the routing for angular applcation where the new components created as part of assignment will be defined with uris
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

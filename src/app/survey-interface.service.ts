@@ -1,8 +1,9 @@
+//VamsiKrishnaPeddi
+//This is the survey interface where the backend comminication pojo variables are declared
+//This varaibles are populated when user submits the form
+
 import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
 
 export class Survey{
   constructor(){}

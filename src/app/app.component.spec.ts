@@ -1,3 +1,6 @@
+//VamsiKrishnaPeddi
+//This is the root file of angular app which will have defnitions of app componenet functions
+
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
